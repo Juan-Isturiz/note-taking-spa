@@ -1,0 +1,11 @@
+model Category {
+  id        String   @id @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  isActive  Boolean  @default(true)
+  name      String
+  //Relations
+  user      User     @relation(fields: [userId], references: [id])
+  notes     Note[]
+  userId    String
+}
